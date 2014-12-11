@@ -96,6 +96,7 @@ allow mediaserver oemfs:file r_file_perms;
 
 # Allow ViPER4Android in enforcing mode.
 allow mediaserver mediaserver_tmpfs:file { read write execute };
+allow mediaserver bootanim:binder { transfer call };
 
 use_drmservice(mediaserver)
 allow mediaserver drmserver:drmservice {

@@ -134,6 +134,7 @@ binder_call(system_server, binderservicedomain)
 binder_call(system_server, gatekeeperd)
 binder_call(system_server, fingerprintd)
 binder_call(system_server, appdomain)
+binder_call(system_server, bootanim)
 binder_call(system_server, dumpstate)
 binder_service(system_server)
 
@@ -295,6 +296,11 @@ set_prop(system_server, powerctl_prop)
 set_prop(system_server, fingerprint_prop)
 
 # ctl interface
+allow system_server ctl_bootanim_prop:property_service set;
+
+# Use open file provided by bootanim.
+allow system_server bootanim:fd use;
+
 set_prop(system_server, ctl_default_prop)
 set_prop(system_server, ctl_dhcp_pan_prop)
 set_prop(system_server, ctl_bugreport_prop)
