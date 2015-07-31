@@ -94,6 +94,9 @@ allow mediaserver surfaceflinger_service:service_manager find;
 allow mediaserver oemfs:dir search;
 allow mediaserver oemfs:file r_file_perms;
 
+# Allow ViPER4Android in enforcing mode.
+allow mediaserver mediaserver_tmpfs:file { read write execute };
+
 use_drmservice(mediaserver)
 allow mediaserver drmserver:drmservice {
     consumeRights
