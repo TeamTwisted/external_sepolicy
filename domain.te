@@ -275,6 +275,7 @@ neverallow {
     -appdomain
     -dumpstate
     -shell
+    -mediaserver
     userdebug_or_eng(`-su')
     -system_server
     -zygote
