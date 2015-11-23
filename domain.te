@@ -314,9 +314,6 @@ neverallow { domain -recovery -kernel } { system_file exec_type }:dir_file_class
 # Don't allow mounting on top of /system files or directories
 neverallow domain { system_file exec_type }:dir_file_class_set mounton;
 
-# Nothing should be writing to files in the rootfs.
-neverallow domain rootfs:file { create write setattr relabelto append unlink link rename };
-
 # Restrict context mounts to specific types marked with
 # the contextmount_type attribute.
 neverallow domain {fs_type -contextmount_type}:filesystem relabelto;
@@ -357,6 +354,7 @@ neverallow {
   -zygote
   -installd
   -dex2oat
+ -system_server
 } dalvikcache_data_file:file no_w_file_perms;
 
 neverallow {
